@@ -1,0 +1,47 @@
+﻿@page
+@using Pustok.ViewModels.Client;
+@model SendEmailViewModel
+@{
+    Layout = "_ClientLayout";
+}
+
+<main class="main-content">
+    @Html.Partial(
+    "Partials/_BreadcrumbPartial",
+    new BreadcrumbViewModel("SEND EMAIL FORM", "email form"))
+
+    <div class="account-page-area section-space-y-axis-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="myaccount-form">
+                        <form method="post">
+                            <div class="myaccount-form-inner">
+                                <div class="single-input">
+                                    <label>Email Başlığı</label>
+                                    <input asp-for="EmailTitle" class="form-control" />
+                                    <span asp-validation-for="EmailTitle" class="text-danger"></span>
+                                </div>
+                                <div class="single-input">
+                                    <label>Email İçeriği</label>
+                                    <textarea asp-for="EmailContent" class="form-control"></textarea>
+                                    <span asp-validation-for="EmailContent" class="text-danger"></span>
+                                </div>
+                                <div class="single-input">
+                                    <label>Gönderilecek Emailler (Virgülle Ayırarak)</label>
+                                    <input asp-for="EmailRecipients" class="form-control" />
+                                    <span asp-validation-for="EmailRecipients" class="text-danger"></span>
+                                </div>
+                                <div class="single-input">
+                                    <button class="btn btn-custom-size lg-size btn-pronia-primary" type="submit">
+                                        <span>SEND</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
